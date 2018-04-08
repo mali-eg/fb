@@ -1,12 +1,12 @@
-package com.fb;
+package com.fp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FbApplication {
+public class FpApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FbApplication.class, args);
+		SpringApplication.run(FpApplication.class, args);
 	}
 }
