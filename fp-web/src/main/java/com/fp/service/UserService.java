@@ -1,7 +1,7 @@
 package com.fp.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,17 +10,18 @@ import org.springframework.stereotype.Service;
 
 import com.fp.repo.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service("userDetailsService")
 public class UserService implements UserDetailsService {
-
-	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+		log.info("findFirstByUsername:{}", username);
 		return userRepository.findFirstByUsername(username);
 	}
 
