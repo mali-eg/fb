@@ -22,7 +22,12 @@ public class UserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.info("findFirstByUsername:{}", username);
-		return userRepository.findFirstByUsername(username);
+		try {
+			return userRepository.findFirstByUsername(username);
+		}catch(Exception e) {
+			log.error(e.getMessage(), e);
+			throw new UsernameNotFoundException("Invalid credentials");
+		}
 	}
 
 }

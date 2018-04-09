@@ -13,6 +13,10 @@ CREATE TABLE IF NOT EXISTS app_user (
   password varchar(255) NOT NULL,
   username varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
+  accountExpired BOOLEAN,
+  accountLocked BOOLEAN,
+  credentialsExpired BOOLEAN,
+  disabled BOOLEAN,
   PRIMARY KEY (id)
 );
 
